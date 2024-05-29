@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CATEGORIE</title>
+</head>
+<body>
+	<div>
+		<form th:action="@{/ihm/categorie}" th:object="${categorie}" method="post">
+			<input type="text" th:field="*{libelle}"/>
+			<span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}"></span>
+			<input type="text" th:field="*{description}"/>
+			<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+			<input type="submit" value="ajout">
+		</form>
+	</div>
+	<div th:each="categorie : ${lstCategories}">
+		<span th:text="${categorie.libelle}"/>
+		<span th:text="${categorie.description}"/>
+	</div>
+</body>
+</html>
